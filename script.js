@@ -249,7 +249,7 @@ const inserts = [
 
 // 定義結局圖片路徑
 const endingImages = [
-    'images/Ending1.png', // score >= 26 的結局
+    'images/Ending1.png', // score >= 23 的結局
     'images/Ending2.png', // score >= 18 的結局
     'images/Ending3.png', // 其他情況的結局
 ];
@@ -495,7 +495,7 @@ async function showResult() { // Make this an async function
     // 根據分數判斷結局文字和圖片
     let ending = '';
     let endingImage = '';
-    if (score >= 26) {
+    if (score >= 23) {
         ending = "在Rene手停下的那一瞬，沈予然沒有退開。只輕聲問了一句：\"妳確定嗎？\" 然後，把Rene拉了下來。";
         endingImage = endingImages[0];
     } else if (score >= 18) {
