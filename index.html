@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>耽溺於理性</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="start-page" class="selection-container">
+        <h1>耽溺於理性</h1>
+        <button id="begin-game-btn" class="character-button">
+            <span>開始遊戲</span>
+        </button>
+    </div>
+
+    <div id="character-selection" class="selection-container hidden">
+        <h1>選擇你的角色</h1>
+        <div class="character-options">
+            <button id="select-rene" class="character-button">
+                <img src="images/Rene_profile.webp" alt="按摩師 Rene">
+                <span>按摩師 Rene</span>
+            </button>
+            <button id="select-sheng" class="character-button">
+                <img src="images/Sheng_profile.webp" alt="客戶 沈予然">
+                <span>客戶 沈予然</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="game-container hidden">
+        <img id="character-img" src="" alt="角色圖片" class="character-image">
+        <img id="character-img-right" src="" alt="右側角色圖片" class="character-image">
+
+        <div id="scene"></div>
+        <div id="choices"></div>
+
+        <div id="result" class="hidden"></div>
+        </div>
+
+    <div id="transition" class="hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

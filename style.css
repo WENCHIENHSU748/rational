@@ -1,0 +1,293 @@
+/* --- 角色選擇介面樣式 --- */
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #F8F4E3; /* 與遊戲背景色統一 */
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.selection-container h1 {
+    color: #4A3C2B; /* 深棕色標題 */
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.character-options {
+    display: flex;
+    gap: 50px; /* 增加按鈕間距 */
+}
+
+.character-button {
+    background-color: #C2A27A; /* 暖棕色按鈕 */
+    color: white;
+    border: none;
+    border-radius: 12px; /* 稍微大一點的圓角 */
+    padding: 20px 30px;
+    cursor: pointer;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* 圖片和文字間距 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 增加陰影效果 */
+}
+
+.character-button:hover {
+    background-color: #A98C64; /* hover 效果變深 */
+    transform: translateY(-5px); /* 輕微上浮效果 */
+}
+
+.character-button img {
+    width: 150px; /* 角色頭像大小 */
+    height: 150px;
+    border-radius: 50%; /* 圓形頭像 */
+    object-fit: cover;
+    border: 4px solid #F8F4E3; /* 鵝黃色邊框 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.character-button span {
+    font-weight: bold;
+}
+
+/* 確保遊戲容器和轉場容器在角色選擇界面下方，或通過 JS 控制顯示隱藏 */
+.hidden {
+    display: none !important;
+}
+
+/* 保持你原有的遊戲內容和轉場樣式，我只列出新增和變動的部分 */
+
+/* 確保 HTML 和 Body 佔滿整個視窗，並且沒有多餘邊距或滾動條 */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* 防止滾動條出現 */
+}
+
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    background-color: #F8F4E3; /* 淺鵝黃色作為 fallback */
+    background-image: url('images/background.jpg'); /* 你的背景圖片 */
+    background-size: cover;
+    background-position: center;
+    color: #4A3C2B; /* 深棕色文字，搭配暖色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.game-container {
+    background: rgba(250, 245, 220, 0.9); /* 較淺的鵝黃色，帶透明度 */
+    padding: 2em;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #8C6F4A; /* 暖棕色標題 */
+}
+
+#character-img {
+    position: absolute;
+    bottom: 0;
+    max-height: 300px;
+    z-index: 1;
+    left: -120px; /* 你的自定義位置 */
+}
+
+#character-img-right {
+    position: absolute;
+    bottom: 0;
+    max-height: 300px;
+    z-index: 1;
+    right: -120px; /* 你的自定義位置 */
+}
+
+#scene {
+    margin: 1em 0;
+    font-size: 1.2em;
+    min-height: 80px;
+    color: #4A3C2B; /* 場景文字顏色，與 body 文字色統一 */
+}
+
+#choices button {
+    display: block;
+    margin: 0.5em auto;
+    padding: 0.6em 1.2em;
+    background-color: #C2A27A; /* 暖棕色按鈕 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#choices button:hover {
+    background-color: #A98C64; /* 按鈕 hover 變深 */
+}
+
+.hidden {
+    display: none !important; /* 使用 !important 確保強制隱藏 */
+}
+
+#result {
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #8C6F4A; /* 結果文字顏色，與標題色統一 */
+}
+
+#start-btn {
+    pointer-events: auto;
+    margin-top: 2em;
+    padding: 0.6em 1.5em;
+    background-color: #8C6F4A; /* 暖棕色重玩按鈕 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease; /* 添加過渡效果 */
+}
+
+#start-btn:hover {
+    background-color: #745C3A; /* 重玩按鈕 hover 變深 */
+}
+
+/* --- 轉場樣式 Start --- */
+/* --- 轉場樣式 Start --- */
+#transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ensure it covers the full viewport width */
+    height: 100vh; /* Ensure it covers the full viewport height */
+    z-index: 99999; /* Always on top */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #4A3C2B; /* Unified dark brown transition background */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 0s linear 1s;
+    text-align: center;
+    padding: 0; /* Remove padding here to ensure it's truly full screen */
+    box-sizing: border-box;
+}
+
+#transition.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease;
+}
+
+/* 轉場文字樣式 */
+.transition-text {
+    position: absolute; /* Absolute positioning relative to #transition */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    font-size: 3em;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #F8F4E3; /* Beige text */
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000; /* Black border effect */
+    z-index: 100000; /* Ensure text is above the image */
+}
+
+/* 插圖樣式 - Adjusted for full-screen background effect */
+.transition-insert {
+    width: 100%; /* Make image fill the width of the transition div */
+    height: 100%; /* Make image fill the height of the transition div */
+    object-fit: cover; /* Cover the entire area, cropping if necessary */
+    /* No position:relative needed here, let the text sit on top with absolute positioning */
+    /* z-index is not explicitly needed if the text is layered via absolute positioning */
+}
+/* --- 轉場樣式 End --- */
+
+/* --- 結局文字的樣式 (確保打字機效果的 cursor 顯示正確) --- */
+.ending-text {
+    color: #F8F4E3; /* 結局文字使用淺鵝黃色，在深色轉場背景上更清晰 */
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 70%; /* 限制文字寬度 */
+    overflow: hidden; /* For typing effect */
+    /* white-space: nowrap; /* 如果文字會很長，這會導致溢出，可以移除 */
+    min-height: 3em; /* 確保文字有足夠空間 */
+    box-sizing: border-box; /* 包含 padding 和 border 在寬度內 */
+}
+
+.ending-text.typing-cursor {
+    border-right: .15em solid #F8F4E3; /* 將游標顏色改為淺色，以便在深色背景上可見 */
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #F8F4E3; } /* 游標閃爍顏色 */
+}
+
+/* ending-content-wrapper 的背景色從白色改為深色，配合結局背景 */
+.ending-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    max-width: 700px;
+    background-color: rgba(74, 60, 43, 0.9); /* 與 transition 背景色協調，略帶透明 */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* 陰影更明顯 */
+    box-sizing: border-box;
+}
+
+.ending-image {
+    max-width: 80%;
+    max-height: 60vh; /* 調整圖片高度 */
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/* 重玩按鈕的容器，用於在結局畫面中佈局 */
+.restart-button-wrapper {
+    margin-top: 20px;
+}
+
+/* 調整 #result div 的樣式，因為它不再直接顯示結局內容 */
+#result {
+    display: none;
+    color: #F8F4E3;
+    font-size: 1.5em;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
